@@ -2,12 +2,15 @@ ARG FEDORA_MAJOR_VERSION=37
 FROM ghcr.io/vibrantleaf/base-nvidia:${FEDORA_MAJOR_VERSION}
 
 
-# switch sudo to doas
+# install doas
 RUN rpm-ostree install doas
-RUN rpm-ostree override remove \
-  sudo \
-  sudo-python-plugin
 COPY etc/doas.conf /etc/doas.conf
+
+# remove sudo
+#RUN rpm-ostree override remove \
+#  sudo \
+#  sudo-python-plugin
+
 
 # switch toolbox to distrobox
 RUN rpm-ostree install distrobox
