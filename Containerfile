@@ -2,7 +2,7 @@ ARG FEDORA_MAJOR_VERSION=37
 FROM ghcr.io/vibrantleaf/base-nvidia:${FEDORA_MAJOR_VERSION} AS builder
 FROM ghcr.io/vibrantleaf/base-nvidia:${FEDORA_MAJOR_VERSION}
 
-COPY --from=ghcr.io/ublue-os/udev-rules etc/udev/rules.d/* /etc/udev/rules.d
+COPY --from=ghcr.io/ublue-os/udev-rules etc/udev/rules.d/* /etc/udev/rules.d/
 COPY etc/ /etc/
 #COPY usr/ /usr/
 
