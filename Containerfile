@@ -9,8 +9,7 @@ RUN flatpak remote-add --if-not-exists flathub-offical https://flathub.org/repo/
   rpm-ostree override remove firefox firefox-langpacks toolbox && \
   rpm-ostree cleanup -m && \
   rpm-ostree upgrade && \
-  rpm-ostree install &&\
-  kernel-xanmod-lts kernel-xanmod-lts-devel kernel-xanmod-lts-headers && \
+  rpm-ostree install kernel-xanmod-lts kernel-xanmod-lts-devel kernel-xanmod-lts-headers && \
   rpm-ostree cleanup -m && \
   rpm-ostree upgrade && \
   ostree container commit
