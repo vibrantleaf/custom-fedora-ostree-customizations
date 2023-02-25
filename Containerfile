@@ -4,8 +4,8 @@ FROM ghcr.io/vibrantleaf/base-nvidia:${FEDORA_MAJOR_VERSION}
 
 # switch sudo to doas
 RUN rpm-ostree install doas
-RUN rpm-ostree override remove sudo-python-plugin
-RUN rpm-ostree override remove sudo
+RUN rpm-ostree override remove -y sudo-python-plugin
+RUN rpm-ostree override remove -y sudo
 COPY etc/doas.conf /etc/doas.conf
 
 # switch toolbox to distrobox
