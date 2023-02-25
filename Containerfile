@@ -6,7 +6,7 @@ COPY etc/doas.conf /etc/doas.conf
 COPY etc/dconf/db/local.d/ /etc/dconf/db/local.d/
 
 RUN rpm-ostree install doas && \
-  rpm-ostree uninstall \
+  rpm-ostree remove \
   sudo \
   sudo-python-plugin && \
   rpm-ostree install distrobox && \
