@@ -6,11 +6,8 @@ COPY etc/ /etc/
 
 RUN flatpak remote-add --if-not-exists flathub-offical https://flathub.org/repo/flathub.flatpakrepo && \
   rpm-ostree install doas virt-manager libvirt swtpm edk2-ovmf podman podman-docker distrobox &&\
-  rpm-ostree override remove firefox firefox-langpacks thunderbird toolbox && \
+  rpm-ostree override remove firefox firefox-langpacks toolbox && \
   rpm-ostree cleanup -m && \
-  mkdir -p /etc/distrobox ** && \
-  echo "container_image_default=\"registry.fedoraproject.org/fedora-toolbox:$(rpm -E %fedora)\"" >> /etc/distrobox/distrobox.conf && \
-  curl https://copr.fedorainfracloud.org/coprs/rmnscnce/kernel-xanmod/repo/fedora-${FEDORA_MAJOR_VERSION}/rmnscnce-kernel-xanmod-fedora-${FEDORA_MAJOR_VERSION}.repo | tee /etc/yum.repos.d/copr-rmnscnce-kernel-xanmod-fedora.repo && \
   rpm-ostree upgrade --refresh && \
   rpm-ostree install &&\
   kernel-xanmod-lts kernel-xanmod-lts-devel kernel-xanmod-lts-headers && \
