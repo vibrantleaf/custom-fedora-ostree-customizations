@@ -13,7 +13,7 @@ RUN rpm-ostree install distrobox && \
     mkdir -p /etc/distrobox && \
     echo "container_image_default=\"registry.fedoraproject.org/fedora-toolbox:$(rpm -E %fedora)\"" >> /etc/distrobox/distrobox.conf && \
     rpm-ostree cleanup -m && \
-    ostree container commit
+    ostree container commit && \
     ostree remote add  --if-not-exists kernel-xanmod-copr https://copr.fedorainfracloud.org/coprs/rmnscnce/kernel-xanmod/repo/fedora-${FEDORA_MAJOR_VERSION}/rmnscnce-kernel-xanmod-fedora-${FEDORA_MAJOR_VERSION}.repo && \
     rpm-ostree update && \
     rpm-ostree install kernel-xanmod-lts kernel-xanmod-lts-devel kernel-xanmod-lts-headers && \
