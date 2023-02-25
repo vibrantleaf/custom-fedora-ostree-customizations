@@ -9,7 +9,6 @@ COPY etc/doas.conf /etc/doas.conf
 RUN rpm-ostree install distrobox && \
     rpm-ostree override remove toolbox && \
     rpm-ostree cleanup -m && \
-    rpm-ostree install ffmpeg gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly gstreamer1-vaapi steam-devices && \
     mkdir -p /etc/distrobox && \
     echo "container_image_default=\"registry.fedoraproject.org/fedora-toolbox:$(rpm -E %fedora)\"" >> /etc/distrobox/distrobox.conf && \
     rpm-ostree cleanup -m && \
