@@ -1,4 +1,6 @@
 ARG FEDORA_MAJOR_VERSION=37
+FROM ghcr.io/vibrantleaf/base-nvidia:${FEDORA_MAJOR_VERSION} AS builder
+
 FROM ghcr.io/vibrantleaf/base-nvidia:${FEDORA_MAJOR_VERSION}
 
 
