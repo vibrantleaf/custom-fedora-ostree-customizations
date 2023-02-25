@@ -9,7 +9,7 @@ COPY etc/doas.conf /etc/doas.conf
 
 # switch toolbox to distrobox
 RUN rpm-ostree install distrobox
-RUN rpm-ostree override remove toolbox
+#RUN rpm-ostree override remove toolbox
 RUN rpm-ostree cleanup -m
 RUN mkdir -p /etc/distrobox
 RUN echo "container_image_default=\"registry.fedoraproject.org/fedora-toolbox:$(rpm -E %fedora)\"" >> /etc/distrobox/distrobox.conf
