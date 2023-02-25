@@ -8,7 +8,7 @@ RUN flatpak remote-add --if-not-exists flathub-offical https://flathub.org/repo/
   rpm-ostree install doas virt-manager libvirt swtpm edk2-ovmf podman podman-docker distrobox &&\
   rpm-ostree override remove firefox firefox-langpacks toolbox && \
   rpm-ostree cleanup -m && \
-  rpm-ostree upgrade --refresh && \
+  rpm-ostree upgrade && \
   rpm-ostree install &&\
   kernel-xanmod-lts kernel-xanmod-lts-devel kernel-xanmod-lts-headers && \
   rpm-ostree cleanup -m && \
